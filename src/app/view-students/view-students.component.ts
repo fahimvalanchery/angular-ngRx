@@ -7,6 +7,9 @@ import { AppState } from "../store/app.state";
 import { Student } from "../store/models/student.model";
 import { Observable } from "rxjs";
 
+// for remove action
+
+import * as StudentActions from "../store/actions/student.action";
 @Component({
   selector: "app-view-students",
   templateUrl: "./view-students.component.html",
@@ -19,6 +22,9 @@ export class ViewStudentsComponent implements OnInit {
 
   constructor(private store: Store<AppState>) {
     this.students = store.select("student");
+  }
+  delStudent(i) {
+    this.store.dispatch(new StudentActions.RemoveStudent(i));
   }
 
   ngOnInit() {}

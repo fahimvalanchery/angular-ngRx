@@ -1,7 +1,10 @@
 <div class="right" *ngIf="students">
   <h3>Students</h3>
   <ul>
-    <li *ngFor="let student of students | async">
+    <li
+      (click)="delStudent(i)"
+      *ngFor="let student of students | async; let i = index"
+    >
       <p>{{ student.name }}</p>
     </li>
   </ul>
