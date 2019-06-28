@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+
+// import these
+
+import { Store } from "@ngrx/store";
+import { AppState } from "../store/app.state";
+import { Student } from "../store/models/student.model";
+import { Observable } from "rxjs";
 
 @Component({
-  selector: 'app-view-students',
-  templateUrl: './view-students.component.html',
-  styleUrls: ['./view-students.component.css']
+  selector: "app-view-students",
+  templateUrl: "./view-students.component.html",
+  styleUrls: ["./view-students.component.css"]
 })
 export class ViewStudentsComponent implements OnInit {
+  //Defineing an Observable
 
-  constructor() { }
+  students: Observable<Student[]>;
 
-  ngOnInit() {
+  constructor(private store: Store<AppState>) {
+    this.students = store.select("student");
   }
 
+  ngOnInit() {}
 }

@@ -1,3 +1,8 @@
-<p>
-  view-students works!
-</p>
+<div class="right" *ngIf="students">
+  <h3>Students</h3>
+  <ul>
+    <li *ngFor="let student of students | async">
+      <p>{{ student.name }}</p>
+    </li>
+  </ul>
+</div>
