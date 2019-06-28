@@ -13,5 +13,14 @@ export function reducer(
   state: Student[] = [initialState],
   action: StudentActions.Actions
 ) {
-  //
+  //use a switch to determine type of action
+  switch (action.type) {
+    case StudentActions.ADD_STUDENT:
+      return [...state, action.payload];
+    case StudentActions.REMOVE_STUDENT:
+      state.splice(action.payload, 1);
+      return state;
+    default:
+      return state;
+  }
 }
