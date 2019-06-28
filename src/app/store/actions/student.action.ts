@@ -19,3 +19,7 @@ export class RemoveStudent implements Action {
   readonly type = REMOVE_STUDENT;
   constructor(public payload: number) {}
 }
+
+// Export all action classes for use within reducer
+
+export type Actions = AddStudent | RemoveStudent;
